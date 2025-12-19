@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     id("org.springframework.boot") version "4.0.0"
     id("io.spring.dependency-management") version "1.1.7"
-    val kotlinVersion = "2.2.21"
+    val kotlinVersion = "2.3.0"
     kotlin("jvm") version kotlinVersion
     kotlin("plugin.spring") version kotlinVersion
 }
@@ -13,10 +13,10 @@ version = "0.0.1-SNAPSHOT"
 description = "akka-demo-kt"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+        languageVersion = JavaLanguageVersion.of(25)
     }
 }
 
@@ -41,11 +41,11 @@ repositories {
     mavenCentral()
 }
 
-extra["kotlin.version"] = "2.2.21"
+extra["kotlin.version"] = "2.3.0"
 extra["kotlin-coroutines.version"] = "1.10.2"
 
 dependencies {
-    implementation(platform("com.github.fmjsjx:libcommon-bom:3.16.1"))
+    implementation(platform("com.github.fmjsjx:libcommon-bom:4.0.0-RC"))
     val scalaBinaryVersion = "2.13"
     implementation(platform("com.typesafe.akka:akka-bom_${scalaBinaryVersion}:2.10.12"))
 
@@ -70,7 +70,7 @@ dependencies {
 
 kotlin {
     compilerOptions {
-        jvmTarget = JvmTarget.JVM_21
+        jvmTarget = JvmTarget.JVM_25
         extraWarnings = true
         freeCompilerArgs.addAll(
             "-Xjsr305=strict",
